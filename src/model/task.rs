@@ -1,0 +1,7 @@
+
+enum TaskState{
+    
+}
+struct Task{
+
+}
