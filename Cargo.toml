@@ -13,8 +13,9 @@ dotenv = "0.15.0"
 env_logger = "^0.8"
 log = "0.4.19"
 serde = { version = "^1", features = ["derive"] }
-sqlx = { version = "0.6.3", features = ["runtime-actix-rustls", "postgres"] }
+serde_json = "1.0.99"
+sqlx = { version = "0.6.3", features = ["runtime-actix-rustls", "postgres", "uuid"] }
 strum = { version = "^0.24", features = ["derive"] }
 strum_macros = "^0.24"
 tokio = "1.29.1"
-uuid = { version = "^0.8", features = ["v4"] }
+uuid = { version = "^0.8", features = ["v4", "serde"] }

@@ -3,8 +3,8 @@ mod repository;
 mod api;
 
 use actix_web::{web,App,HttpServer,Responder,HttpResponse};
-use actix_web::{http::header};
-use actix_web::middleware::Logger;
+// use actix_web::{http::header};
+// use actix_web::middleware::Logger;
 use dotenv::dotenv;
 use sqlx::{postgres::PgPoolOptions,Pool,Postgres};
 
@@ -27,6 +27,8 @@ pub struct AppState{
 async fn health_check()->impl Responder{
     HttpResponse::Ok()
 }
+
+
 
 #[actix_web :: main]
 
@@ -62,6 +64,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
         .app_data(web::Data::new(AppState{db:pool.clone()}))
         .route("/health_check",web::get().to(health_check))
+
     })
     .bind("127.0.0.1:8000")?
     .run()
