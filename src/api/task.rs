@@ -15,7 +15,6 @@ use serde_json::json;
 
 #[post("/tasks")]
 async fn create_task(
-    // body: web::Json<TaskCreateData>,
     body: web::Json<Task>,
     data: web::Data<AppState>
 ) -> impl Responder {
