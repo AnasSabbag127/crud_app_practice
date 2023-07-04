@@ -8,7 +8,7 @@ use actix_web::{web,App,HttpServer,Responder,HttpResponse};
 use dotenv::dotenv;
 use sqlx::{postgres::PgPoolOptions,Pool,Postgres};
 
-
+use api::task;
 
 // use api::task::{
 //     get_task,
@@ -63,6 +63,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer:: new(move ||{
         App::new()
         .app_data(web::Data::new(AppState{db:pool.clone()}))
+        .configure(task::config)
         .route("/health_check",web::get().to(health_check))
 
     })
